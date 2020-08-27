@@ -1,0 +1,22 @@
+html {
+  height: 100%;
+}
+
+body {
+  background: radial-gradient(circle, #fff, #bbb);
+  min-width: 400px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+  /* background-image: url(https://ak.picdn.net/shutterstock/videos/1019547568/thumb/1.jpg); */
+  /* background-repeat: no-repeat; */
+  /* background-position: center; */
+  /* background-size: 100% 100%; Resize the background image to cover the entire container */
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: min-content repeat(3, 1fr) min-content;
+  height: 100vh;
+  margin: auto;
+}

@@ -1,0 +1,21 @@
+.tasksArea {
+  /* grid-column: 2 / span 2;
+  grid-row: 2 / span 3; */
+  /* padding-left: 100px; */
+  background: #ccc;
+  padding: 20px;
+
+  p {
+    font-size: 25px;
+    font-weight: 700;
+    cursor: default;
+  }
+
+  .tasksArea__tasksContainer {
+    /* width: 600px;
+    height: 350px; */
+    overflow: auto;
+    background: #bbb;
+    border-radius: 10px;
+  }
+}
