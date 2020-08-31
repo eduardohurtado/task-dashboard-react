@@ -3,10 +3,7 @@ $breakpoint-tablet: 768px;
 
 //Mobile Sizes
 @media (max-width: $breakpoint-tablet) {
-  
-
   .navigationBar_responsive {
-    
     grid-column: 1 / span 3;
     grid-row: 1 / span 1;
     background-color: #464866;
@@ -27,27 +24,39 @@ $breakpoint-tablet: 768px;
   }
 
   .navigationBar {
+    z-index: 10;
+    margin-top: 42px;
     position: absolute;
     background-color: #464866;
-    
-      ul{
+    padding: 10px;
+    width: 70%;
+
+    ul {
       list-style: none;
       margin: 0;
       padding: 0;
-      display: block;
-      flex-direction: column;
-      
-        li{
-          width: 100%;
-          
-          a{
-            text-decoration: none;
-            
-            
 
-          }
+      li {
+        display: flex;
+
+        border-bottom: 1px solid white;
+
+        :hover {
+          background-color: #29648a;
+        }
+
+        a {
+          text-decoration: none;
+
+          display: block;
+          flex-direction: column;
+          margin: 5px;
+          font-size: 20px;
+          color: white;
+          margin: 10px;
         }
       }
+    }
   }
 }
 
@@ -70,19 +79,17 @@ $breakpoint-tablet: 768px;
       li {
         display: inline-block;
 
+        :hover {
+          background-color: #29648a;
+        }
+
         a {
           display: block;
           padding: 10px;
           font-size: 20px;
           color: white;
           text-decoration: none;
-
-          :hover {
-            background-color: #29648a;
-          }
         }
-
-        
       }
     }
   }

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import $ from "jquery";
 
 //Style CSS
 import "../css/navigationBar.scss";
@@ -8,6 +9,32 @@ import "../css/navigationBar.scss";
 import openMenu from "../img/open-menu.png";
 
 export default class NavigationBar extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      menuChecked: false,
+    };
+  }
+
+  componentDidMount() {
+    // $(".homePage").click(() => {
+    //   $(".navigationBar").hide();
+
+    //   $( "#btn-menu" ).prop( "checked", function( i, val ) {
+    //     return !val;
+    //   });
+    // });
+
+    $("#btn-menu").change(() => {
+      //Add media query to NOT DELETE ALL THE CLASS *****************************************
+      this.setState({ menuChecked: !this.state.menuChecked });
+      if (this.state.menuChecked === true) {
+        $(".navigationBar").hide();
+      } else {
+        $(".navigationBar").show("fast");
+      }
+    });
+  }
   render() {
     return (
       <>
