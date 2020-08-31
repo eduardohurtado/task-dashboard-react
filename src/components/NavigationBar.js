@@ -17,21 +17,23 @@ export default class NavigationBar extends Component {
   }
 
   componentDidMount() {
-    // $(".homePage").click(() => {
-    //   $(".navigationBar").hide();
-
-    //   $( "#btn-menu" ).prop( "checked", function( i, val ) {
-    //     return !val;
-    //   });
-    // });
-
-    $("#btn-menu").change(() => {
-      //Add media query to NOT DELETE ALL THE CLASS *****************************************
+    $("#btn-menu").click(() => {
       this.setState({ menuChecked: !this.state.menuChecked });
       if (this.state.menuChecked === true) {
-        $(".navigationBar").hide();
-      } else {
         $(".navigationBar").show("fast");
+      } else {
+        $(".navigationBar").hide("fast");
+      }
+    });
+
+    $(window).resize(() => {
+      if ($(window).width() >= 769) {
+        $(".navigationBar").show();
+        $(".navigationBar_responsive").hide();
+        this.setState({ menuChecked: false });
+      } else {
+        $(".navigationBar").hide();
+        $(".navigationBar_responsive").show();
       }
     });
   }

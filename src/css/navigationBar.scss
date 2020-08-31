@@ -47,7 +47,6 @@ $breakpoint-tablet: 768px;
 
         a {
           text-decoration: none;
-
           display: block;
           flex-direction: column;
           margin: 5px;
@@ -62,10 +61,6 @@ $breakpoint-tablet: 768px;
 
 //Desktop Sizes
 @media (min-width: $breakpoint-tablet) {
-  .navigationBar_responsive {
-    display: none;
-  }
-
   .navigationBar {
     grid-column: 1 / span 3;
     grid-row: 1 / span 1;
