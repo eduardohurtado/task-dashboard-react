@@ -36,6 +36,24 @@ export default class NavigationBar extends Component {
         $(".navigationBar_responsive").show();
       }
     });
+
+    const $menu = $(".navigationBar");
+
+    $(document).mouseup((e) => {
+      if (
+        !$menu.is(e.target) && // if the target of the click isn't the container...
+        // !$menu.is($(".navigationBar_responsive")) &&
+        $menu.has(e.target).length === 0
+      ) {
+        // ... nor a descendant of the container
+        $menu.hide("fast");
+        // this.setState({ menuChecked: false });
+      }
+    });
+
+    // $('.toggle').on('click', () => {
+    //   $menu.toggleClass('is-active');
+    // });
   }
   render() {
     return (

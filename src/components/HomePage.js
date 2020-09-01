@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import $ from "jquery";
 
 //Style CSS
 import "../css/homePage.scss";
@@ -10,6 +11,17 @@ import logoJs from "../img/js.png";
 import logoReact from "../img/react.png";
 
 export default class HomePage extends Component {
+  // componentDidMount() {
+  //   $(window).resize(() => {
+  //     if ($(window).width() < 769) {
+  //       $(".homePage").click(() => {
+  //         $(".navigationBar").hide("fast");
+  //       });
+  //     } else {
+  //     }
+  //   });
+  // }
+
   render() {
     return (
       <div className="homePage">
