@@ -1,31 +1,100 @@
-.navigationBar {
-  grid-column: 1 / span 3;
-  grid-row: 1 / span 1;
-  background-color: #464866;
+//Variables
+$breakpoint-tablet: 768px;
 
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+//Mobile Sizes
+@media (max-width: $breakpoint-tablet) {
+  .navigationBar_responsive {
+    grid-column: 1 / span 3;
+    grid-row: 1 / span 1;
+    background-color: #464866;
+    display: flex;
 
-    li {
-      display: inline-block;
+    input[type="checkbox"] {
+      display: none;
+    }
 
-      a {
-        display: block;
-        padding: 10px;
-        font-size: 20px;
-        color: white;
-        text-decoration: none;
+    label {
+      float: left;
+      border-right: 1px solid white;
+
+      :hover {
+        cursor: pointer;
+        // background: rgba(0, 0, 0, 0.3);
       }
+    }
+  }
 
-      a:hover {
-        background-color: #29648a;
+  .navigationBar {
+    z-index: 10;
+    margin-top: 42px;
+    position: absolute;
+    background-color: #464866;
+    padding: 10px;
+    width: 70%;
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        display: flex;
+
+        border-bottom: 1px solid white;
+
+        :hover {
+          background-color: #29648a;
+        }
+
+        a {
+          text-decoration: none;
+          display: block;
+          flex-direction: column;
+          margin: 5px;
+          font-size: 20px;
+          color: white;
+          margin: 10px;
+        }
       }
     }
   }
 }
 
-.navigationBar__item-r {
-  float: right;
+//Desktop Sizes
+@media (min-width: $breakpoint-tablet) {
+  .navigationBar_responsive {
+    display: none;
+  }
+
+  .navigationBar {
+    grid-column: 1 / span 3;
+    grid-row: 1 / span 1;
+    background-color: #464866;
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        display: inline-block;
+
+        :hover {
+          background-color: #29648a;
+        }
+
+        a {
+          display: block;
+          padding: 10px;
+          font-size: 20px;
+          color: white;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  .navigationBar__item-r {
+    float: right;
+  }
 }
