@@ -26,6 +26,9 @@ export default class HomePage extends Component {
         <img src={logoScss} alt="SCSS" height="110px" />
         <img src={logoReact} alt="React" height="110px" />
         <img className="incoming" src={logoRedux} alt="Redux" height="110px" />
+        <p className="incomingText">
+          *Gray icons means that feature is in current develop.
+        </p>
       </div>
     );
   }

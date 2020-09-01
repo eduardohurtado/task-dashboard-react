@@ -6,14 +6,21 @@ import Task from "./Task.js";
 
 class Tasks extends Component {
   render() {
-    return this.props.tasks.map((e) => (
-      <Task
-        task={e}
-        key={e.id}
-        deleteTask={this.props.deleteTask}
-        checkDone={this.props.checkDone}
-      />
-    ));
+    return (
+      <Task 
+      deleteTask={this.props.deleteTask}
+         checkDone={this.props.checkDone}
+    />
+    );
+    
+    // this.props.tasks.map((e) => (
+    //   <Task
+    //     task={e}
+    //     key={e.id}
+    //     deleteTask={this.props.deleteTask}
+    //     checkDone={this.props.checkDone}
+    //   />
+    // ));
   }
 }
 

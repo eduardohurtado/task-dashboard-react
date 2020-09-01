@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import propTypes from "prop-types";
+// import propTypes from "prop-types";
 
 //Global state REDUX
-// import { connect } from "react-redux";
+import { connect } from "react-redux";
 
 //Style CSS
 import "../css/task.scss";
@@ -24,17 +24,17 @@ class Task extends Component {
     return {
       fontSize: "15px",
       padding: "5px",
-      color: this.props.task.done ? "gray" : "white",
-      textDecoration: this.props.task.done ? "line-through" : "none",
+      // color: this.props.taskFromRedux.done ? "gray" : "white",
+      // textDecoration: this.props.taskFromRedux.done ? "line-through" : "none",
     };
   }
 
   render() {
-    const task  = this.props.task;
+    // const task  = this.props.task;
 
-    // const task = tasks[0];
+     const task = this.props.tasksFromRedux;
 
-    // console.log(this.props.taskFromRedux);
+     console.log(this.props.taskFromRedux);
 
     //.bind below sends the parameter value inserted to the functions "checkDone" and "deleteTask".
     return (
@@ -67,18 +67,18 @@ class Task extends Component {
   }
 }
 
- Task.propTypes = {
-   //Validating the type of propertie needed.
+//  Task.propTypes = {
+//    //Validating the type of propertie needed.
 
-   task: propTypes.object.isRequired,
- };
+//    task: propTypes.object.isRequired,
+//  };
 
- export default Task;
+//  export default Task;
 
-// const mapStateToProps = (state) => ({
-//   tasks: state.tasks,
-// });
+ const mapStateToProps = (state) => ({
+   tasksFromRedux: state.tasks[0],
+ });
 
-// const mapDispatchToProps = (dispatch) => ({});
+ const mapDispatchToProps = (dispatch) => ({});
 
-// export default connect(mapStateToProps, mapDispatchToProps)(Task);
+ export default connect(mapStateToProps, mapDispatchToProps)(Task);
