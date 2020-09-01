@@ -16,16 +16,21 @@ export default class NavigationBar extends Component {
     };
   }
 
+  toggleMenuRes() {
+    this.setState({ menuChecked: !this.state.menuChecked });
+    if (this.state.menuChecked === true) {
+      $(".navigationBar").show("fast");
+    } else {
+      $(".navigationBar").hide("fast");
+    }
+  }
+
   componentDidMount() {
     $("#btn-menu").click(() => {
-      this.setState({ menuChecked: !this.state.menuChecked });
-      if (this.state.menuChecked === true) {
-        $(".navigationBar").show("fast");
-      } else {
-        $(".navigationBar").hide("fast");
-      }
+      this.toggleMenuRes();
     });
 
+    //Adjust the app in diferent screen sizes.
     $(window).resize(() => {
       if ($(window).width() >= 769) {
         $(".navigationBar").show();
@@ -37,31 +42,35 @@ export default class NavigationBar extends Component {
       }
     });
 
+    //Code to hide the menu when a click event happend outside this variables:
     const $menu = $(".navigationBar");
+    const $navigationBarResponsive = $(".navigationBar_responsive");
+    const $labelButton = $(".labelButton");
+    const $imageMenu = $(".imageMenu");
 
     $(document).mouseup((e) => {
       if (
         !$menu.is(e.target) && // if the target of the click isn't the container...
-        // !$menu.is($(".navigationBar_responsive")) &&
-        $menu.has(e.target).length === 0
+        !$navigationBarResponsive.is(e.target) &&
+        !$labelButton.is(e.target) &&
+        !$imageMenu.is(e.target) &&
+        $menu.has(e.target).length === 0 // ... nor a descendant of the container
       ) {
-        // ... nor a descendant of the container
-        $menu.hide("fast");
-        // this.setState({ menuChecked: false });
+        //Check if Menu responsive isn't visible, that means app is in dektop mode.
+        if ($(".navigationBar_responsive:hidden").length === 0) {
+          $menu.hide("fast");
+          this.setState({ menuChecked: false });
+        }
       }
     });
-
-    // $('.toggle').on('click', () => {
-    //   $menu.toggleClass('is-active');
-    // });
   }
   render() {
     return (
       <>
         <div className="navigationBar_responsive">
           <input type="checkbox" id="btn-menu" />
-          <label for="btn-menu">
-            <img src={openMenu} alt="open-menu" />
+          <label for="btn-menu" className="labelButton">
+            <img src={openMenu} alt="open-menu" className="imageMenu" />
           </label>
         </div>
 
