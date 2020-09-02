@@ -69,7 +69,7 @@ export default class NavigationBar extends Component {
       <>
         <div className="navigationBar_responsive">
           <input type="checkbox" id="btn-menu" />
-          <label for="btn-menu" className="labelButton">
+          <label htmlFor="btn-menu" className="labelButton">
             <img src={openMenu} alt="open-menu" className="imageMenu" />
           </label>
         </div>

@@ -7,12 +7,12 @@ import Task from "./Task.js";
 class Tasks extends Component {
   render() {
     return (
-      <Task 
-      deleteTask={this.props.deleteTask}
-         checkDone={this.props.checkDone}
-    />
+      <Task
+        deleteTask={this.props.deleteTask}
+        checkDone={this.props.checkDone}
+      />
     );
-    
+
     // this.props.tasks.map((e) => (
     //   <Task
     //     task={e}
@@ -24,10 +24,10 @@ class Tasks extends Component {
   }
 }
 
-Tasks.propTypes = {
-  //Validating the type of propertie needed.
+// Tasks.propTypes = {
+//   //Validating the type of propertie needed.
 
-  tasks: propTypes.array.isRequired,
-};
+//   tasks: propTypes.array.isRequired,
+// };
 
 export default Tasks;
