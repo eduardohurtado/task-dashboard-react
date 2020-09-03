@@ -51,17 +51,17 @@ class App extends Component {
   };
 
   //.map below runs all over "tasksRecieved" change the ".done" prop and returns the new state.
-  checkDone = (id) => {
-    const newTasksDone = this.state.tasksRecieved.map((tasksRecieved) => {
-      if (tasksRecieved.id === id) {
-        tasksRecieved.done = !tasksRecieved.done;
-      }
-      return tasksRecieved;
-    });
-    this.setState({
-      tasksRecieved: newTasksDone,
-    });
-  };
+   checkDone = (id) => {
+     const newTasksDone = this.state.tasksRecieved.map((tasksRecieved) => {
+       if (tasksRecieved.id === id) {
+         tasksRecieved.done = !tasksRecieved.done;
+       }
+       return tasksRecieved;
+     });
+     this.setState({
+       tasksRecieved: newTasksDone,
+     });
+   };
 
   render() {
     return (

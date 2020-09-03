@@ -19,23 +19,35 @@ const btnDelete = {
 };
 
 class Task extends Component {
+  constructor(props) {
+    super(props);
+    this.props = props;
+
+    // this.state = {
+    //   lol: false,
+    // }
+  }
+
+  // alertTestState(){
+  //   alert(this.state.lol);
+  // }
+
   styleCompleted() {
-    const taskDone = this.props.tasksFromRedux;
-    //Internal CSS "Style" that can be mofifyed by code
     return {
       fontSize: "15px",
       padding: "5px",
-      color: taskDone.done ? "gray" : "white",
-      textDecoration: taskDone.done ? "line-through" : "none",
+      color: this.props.tasksFromRedux.done ? "gray" : "white",
+      textDecoration: this.props.tasksFromRedux.done ? "line-through" : "none",
     };
   }
 
-  render() {
-    // const task  = this.props.task;
+  // componentDidMount(){
+  //   this.alertTestState();
+  // }
 
+  render() {
     const task = this.props.tasksFromRedux;
 
-    //.bind below sends the parameter value inserted to the functions "checkDone" and "deleteTask".
     return (
       <div className="task">
         <p style={this.styleCompleted()}>
@@ -51,7 +63,10 @@ class Task extends Component {
           {"Mark as done: "}
           <input
             type="checkbox"
-            onChange={this.props.checkDone.bind(this, task.id)}
+            // onChange={this.props.checkDone.bind(this, task.id)}
+            onChange={() => {
+              this.props.checkDoneFromRedux(task.id);
+            }}
           />{" "}
           {"Delete: "}
           <button
@@ -70,7 +85,13 @@ const mapStateToProps = (state) => ({
   tasksFromRedux: state.tasks[0],
 });
 
-// const mapDispatchToProps = (dispatch) => ({});
+const mapDispatchToProps = (dispatch) => ({
+  checkDoneFromRedux(id) {
+    dispatch({
+      type: "TASK_TEXT_STYLE",
+      id,
+    });
+  },
+});
 
-// export default connect(mapStateToProps, mapDispatchToProps)(Task);
-export default connect(mapStateToProps, {})(Task);
+export default connect(mapStateToProps, mapDispatchToProps)(Task);
