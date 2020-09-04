@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import $ from "jquery";
 
-//Style CSS
-import "../css/navigationBar.scss";
+//Style SCSS
+import "../sass/navigationBar.scss";
 
 //Images
 import openMenu from "../img/open-menu.png";

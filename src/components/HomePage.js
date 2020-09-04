@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
-//Style CSS
-import "../css/homePage.scss";
+//Style SCSS
+import "../sass/homePage.scss";
 
 //Images
 import logoHtml from "../img/html-5.png";

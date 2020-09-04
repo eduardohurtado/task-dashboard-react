@@ -3,10 +3,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 //Global state Redux
 import { Provider } from "react-redux";
-import store from "./data/store";
-
-//Data
-import tasks from "./data/tasks.json";
+import store from "./store/store";
 
 //Components
 import HomePage from "./components/HomePage";
@@ -17,13 +14,13 @@ import ContactPage from "./components/ContactPage";
 import TaskDashboardPage from "./components/TaskDashboardPage";
 
 //Style Global CSS
-import "./css/normalize.scss";
-import "./css/app.scss";
+import "./sass/normalize.scss";
+import "./sass/app.scss";
 
 class App extends Component {
-  state = {
-    tasksRecieved: tasks,
-  };
+  // state = {
+  //   tasksRecieved: tasks,
+  // };
 
   //Creating a new Task, the function is called from TaskForm.
   addTask = (title, description) => {
@@ -49,19 +46,6 @@ class App extends Component {
       tasksRecieved: newTasks,
     });
   };
-
-  //.map below runs all over "tasksRecieved" change the ".done" prop and returns the new state.
-   checkDone = (id) => {
-     const newTasksDone = this.state.tasksRecieved.map((tasksRecieved) => {
-       if (tasksRecieved.id === id) {
-         tasksRecieved.done = !tasksRecieved.done;
-       }
-       return tasksRecieved;
-     });
-     this.setState({
-       tasksRecieved: newTasksDone,
-     });
-   };
 
   render() {
     return (
@@ -109,9 +93,8 @@ class App extends Component {
                   <>
                     <TaskDashboardPage
                       addTask={this.addTask}
-                      tasks={this.state.tasksRecieved}
+                      // tasks={this.state.tasksRecieved}
                       deleteTask={this.deleteTask}
-                      checkDone={this.checkDone}
                     />
                   </>
                 );

@@ -3,8 +3,8 @@ import React, { Component } from "react";
 //Global state REDUX
 import { connect } from "react-redux";
 
-//Style CSS
-import "../css/task.scss";
+//Style SCSS
+import "../sass/task.scss";
 
 //Internal CSS Style
 const btnDelete = {
