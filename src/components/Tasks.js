@@ -1,33 +1,31 @@
 import React, { Component } from "react";
-// import propTypes from "prop-types";
+
+//Global state REDUX
+import { connect } from "react-redux";
 
 //Components
 import Task from "./Task.js";
 
 class Tasks extends Component {
-  render() {
-    return (
-      <Task
-        deleteTask={this.props.deleteTask}
-        checkDone={this.props.checkDone}
-      />
-    );
+  constructor(props) {
+    super(props);
+    this.props = props;
+  }
 
-    // this.props.tasks.map((e) => (
-    //   <Task
-    //     task={e}
-    //     key={e.id}
-    //     deleteTask={this.props.deleteTask}
-    //     checkDone={this.props.checkDone}
-    //   />
-    // ));
+  render() {
+    return this.props.tasksFromRedux.map((e) => (
+      <Task
+        key={e.id}
+        propTask={e}
+        // deleteTask={this.props.deleteTask}
+        // checkDone={this.props.checkDone}
+      />
+    ));
   }
 }
 
-// Tasks.propTypes = {
-//   //Validating the type of propertie needed.
+const mapStateToProps = (state) => ({
+  tasksFromRedux: state.tasks,
+});
 
-//   tasks: propTypes.array.isRequired,
-// };
-
-export default Tasks;
+export default connect(mapStateToProps, null)(Tasks);

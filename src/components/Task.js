@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import propTypes from "prop-types";
 
 //Global state REDUX
 import { connect } from "react-redux";
@@ -22,31 +21,26 @@ class Task extends Component {
   constructor(props) {
     super(props);
     this.props = props;
-
-    // this.state = {
-    //   lol: false,
-    // }
   }
 
-  // alertTestState(){
-  //   alert(this.state.lol);
-  // }
+  debugger() {
+    console.log("Debuggin local state fomr Redux: ");
+    console.log(this.props.task);
+  }
 
   styleCompleted() {
     return {
       fontSize: "15px",
       padding: "5px",
-      color: this.props.tasksFromRedux.done ? "gray" : "white",
-      textDecoration: this.props.tasksFromRedux.done ? "line-through" : "none",
+      color: this.props.propTask.done ? "gray" : "white",
+      textDecoration: this.props.propTask.done ? "line-through" : "none",
     };
   }
 
-  // componentDidMount(){
-  //   this.alertTestState();
-  // }
+  componentDidMount() {}
 
   render() {
-    const task = this.props.tasksFromRedux;
+    let task = this.props.propTask;
 
     return (
       <div className="task">
@@ -63,15 +57,16 @@ class Task extends Component {
           {"Mark as done: "}
           <input
             type="checkbox"
-            // onChange={this.props.checkDone.bind(this, task.id)}
             onChange={() => {
               this.props.checkDoneFromRedux(task.id);
+              // this.debugger();
             }}
           />{" "}
           {"Delete: "}
           <button
             style={btnDelete}
-            onClick={this.props.deleteTask.bind(this, task.id)}
+            // onClick={this.props.deleteTask.bind(this, task.id)}
+            onClick={() => {}}
           >
             X
           </button>
@@ -82,8 +77,9 @@ class Task extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  tasksFromRedux: state.tasks[0],
-});
+  //Passing the current state of "store.js" because
+  Redux: state, //mapDispatchToProps don't work without
+}); //define mapStateToProps.
 
 const mapDispatchToProps = (dispatch) => ({
   checkDoneFromRedux(id) {
