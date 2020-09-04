@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import $ from "jquery";
 
-//Style CSS
-import "../css/navigationBar.scss";
+//Style SCSS
+import "../sass/navigationBar.scss";
 
 //Images
 import openMenu from "../img/open-menu.png";
@@ -69,7 +69,7 @@ export default class NavigationBar extends Component {
       <>
         <div className="navigationBar_responsive">
           <input type="checkbox" id="btn-menu" />
-          <label for="btn-menu" className="labelButton">
+          <label htmlFor="btn-menu" className="labelButton">
             <img src={openMenu} alt="open-menu" className="imageMenu" />
           </label>
         </div>

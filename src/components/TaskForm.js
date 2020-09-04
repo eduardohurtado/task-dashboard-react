@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
-//Style CSS
-import "../css/taskForm.scss";
+//Style SCSS
+import "../sass/taskForm.scss";
 
 export default class TaskForm extends Component {
   state = {

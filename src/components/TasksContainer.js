@@ -4,7 +4,7 @@ import React, { Component } from "react";
 import Tasks from "./Tasks.js";
 
 //Style CSS
-import "../css/tasksContainer.scss";
+import "../sass/tasksContainer.scss";
 
 export default class TasksContainer extends Component {
   render() {
@@ -12,11 +12,7 @@ export default class TasksContainer extends Component {
       <div className="tasksArea">
         <p>My tasks:</p>
         <div className="tasksArea__tasksContainer">
-          <Tasks
-            tasks={this.props.tasks}
-            deleteTask={this.props.deleteTask}
-            checkDone={this.props.checkDone}
-          />
+          <Tasks deleteTask={this.props.deleteTask} />
         </div>
       </div>
     );

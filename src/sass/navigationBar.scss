@@ -13,13 +13,17 @@ $breakpoint-tablet: 768px;
       display: none;
     }
 
+    :hover {
+      // background: rgba(0, 0, 0, 0.3);
+      background-color: #29648a;
+    }
+
     label {
       float: left;
       border-right: 1px solid white;
 
       :hover {
         cursor: pointer;
-        // background: rgba(0, 0, 0, 0.3);
       }
     }
   }
@@ -31,6 +35,7 @@ $breakpoint-tablet: 768px;
     background-color: #464866;
     padding: 10px;
     width: 70%;
+    display: none; //Initial state when the app launches.
 
     ul {
       list-style: none;
@@ -38,8 +43,7 @@ $breakpoint-tablet: 768px;
       padding: 0;
 
       li {
-        display: flex;
-
+        display: block;
         border-bottom: 1px solid white;
 
         :hover {

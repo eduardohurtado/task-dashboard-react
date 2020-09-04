@@ -4,8 +4,8 @@ import React, { Component } from "react";
 import TasksContainer from "./TasksContainer";
 import TaskForm from "./TaskForm.js";
 
-//Style CSS
-import "../css/taskDashboardPage.scss";
+//Style SCSS
+import "../sass/taskDashboardPage.scss";
 
 export default class TaskDashboardPage extends Component {
   render() {
@@ -13,9 +13,8 @@ export default class TaskDashboardPage extends Component {
       <div className="taskDashboardPage">
         <TaskForm addTask={this.props.addTask} />
         <TasksContainer
-          tasks={this.props.tasks}
+          // tasks={this.props.tasks}
           deleteTask={this.props.deleteTask}
-          checkDone={this.props.checkDone}
         />
       </div>
     );

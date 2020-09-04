@@ -1,11 +1,10 @@
 import React, { Component } from "react";
-import propTypes from "prop-types";
 
 //Global state REDUX
-// import { connect } from "react-redux";
+import { connect } from "react-redux";
 
-//Style CSS
-import "../css/task.scss";
+//Style SCSS
+import "../sass/task.scss";
 
 //Internal CSS Style
 const btnDelete = {
@@ -19,24 +18,30 @@ const btnDelete = {
 };
 
 class Task extends Component {
+  constructor(props) {
+    super(props);
+    this.props = props;
+  }
+
+  debugger() {
+    console.log("Debuggin local state fomr Redux: ");
+    console.log(this.props.task);
+  }
+
   styleCompleted() {
-    //Internal CSS "Style" that can be mofifyed by code
     return {
       fontSize: "15px",
       padding: "5px",
-      color: this.props.task.done ? "gray" : "white",
-      textDecoration: this.props.task.done ? "line-through" : "none",
+      color: this.props.propTask.done ? "gray" : "white",
+      textDecoration: this.props.propTask.done ? "line-through" : "none",
     };
   }
 
+  componentDidMount() {}
+
   render() {
-    const task  = this.props.task;
+    let task = this.props.propTask;
 
-    // const task = tasks[0];
-
-    // console.log(this.props.taskFromRedux);
-
-    //.bind below sends the parameter value inserted to the functions "checkDone" and "deleteTask".
     return (
       <div className="task">
         <p style={this.styleCompleted()}>
@@ -52,12 +57,16 @@ class Task extends Component {
           {"Mark as done: "}
           <input
             type="checkbox"
-            onChange={this.props.checkDone.bind(this, task.id)}
+            onChange={() => {
+              this.props.checkDoneFromRedux(task.id);
+              // this.debugger();
+            }}
           />{" "}
           {"Delete: "}
           <button
             style={btnDelete}
-            onClick={this.props.deleteTask.bind(this, task.id)}
+            // onClick={this.props.deleteTask.bind(this, task.id)}
+            onClick={() => {}}
           >
             X
           </button>
@@ -67,18 +76,18 @@ class Task extends Component {
   }
 }
 
- Task.propTypes = {
-   //Validating the type of propertie needed.
+const mapStateToProps = (state) => ({
+  //Passing the current state of "store.js" because
+  Redux: state, //mapDispatchToProps don't work without
+}); //define mapStateToProps.
 
-   task: propTypes.object.isRequired,
- };
+const mapDispatchToProps = (dispatch) => ({
+  checkDoneFromRedux(id) {
+    dispatch({
+      type: "TASK_TEXT_STYLE",
+      id,
+    });
+  },
+});
 
- export default Task;
-
-// const mapStateToProps = (state) => ({
-//   tasks: state.tasks,
-// });
-
-// const mapDispatchToProps = (dispatch) => ({});
-
-// export default connect(mapStateToProps, mapDispatchToProps)(Task);
+export default connect(mapStateToProps, mapDispatchToProps)(Task);
