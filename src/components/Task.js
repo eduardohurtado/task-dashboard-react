@@ -23,11 +23,6 @@ class Task extends Component {
     this.props = props;
   }
 
-  debugger() {
-    console.log("Debuggin local state fomr Redux: ");
-    console.log(this.props.task);
-  }
-
   styleCompleted() {
     return {
       fontSize: "15px",
@@ -58,15 +53,15 @@ class Task extends Component {
           <input
             type="checkbox"
             onChange={() => {
-              this.props.checkDoneFromRedux(task.id);
-              // this.debugger();
+              this.props.checkDoneRedux(task.id);
             }}
           />{" "}
           {"Delete: "}
           <button
             style={btnDelete}
-            // onClick={this.props.deleteTask.bind(this, task.id)}
-            onClick={() => {}}
+            onClick={() => {
+              this.props.deleteTaskRedux(task.id);
+            }}
           >
             X
           </button>
@@ -82,9 +77,16 @@ const mapStateToProps = (state) => ({
 }); //define mapStateToProps.
 
 const mapDispatchToProps = (dispatch) => ({
-  checkDoneFromRedux(id) {
+  checkDoneRedux(id) {
     dispatch({
       type: "TASK_TEXT_STYLE",
+      id,
+    });
+  },
+
+  deleteTaskRedux(id) {
+    dispatch({
+      type: "TASK_DELETE",
       id,
     });
   },

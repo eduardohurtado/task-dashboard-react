@@ -25,8 +25,6 @@ const initialState = {
 };
 
 const reducer = (state = initialState, action = {}) => {
-  console.log(state.tasks);
-
   if (action.type === "TASK_TEXT_STYLE") {
     return {
       ...state,
@@ -37,6 +35,12 @@ const reducer = (state = initialState, action = {}) => {
         }
         return e;
       }),
+    };
+  } else if (action.type === "TASK_DELETE") {
+    return {
+      ...state,
+
+      tasks: state.tasks.filter((e) => e.id !== action.id),
     };
   }
 

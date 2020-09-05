@@ -18,10 +18,6 @@ import "./sass/normalize.scss";
 import "./sass/app.scss";
 
 class App extends Component {
-  // state = {
-  //   tasksRecieved: tasks,
-  // };
-
   //Creating a new Task, the function is called from TaskForm.
   addTask = (title, description) => {
     const newTask = {
@@ -29,21 +25,9 @@ class App extends Component {
       title: title,
       description: description,
     };
-    //Sets the new "Task".
-    //[...this.state.tasksRecieved "<---Whatever was here before", newTask "<---Add this"],
+
     this.setState({
       tasksRecieved: [...this.state.tasksRecieved, newTask],
-    });
-  };
-
-  //Remove a task from the local state
-  deleteTask = (id) => {
-    //Filter the data creating a new array without the one that the id matches.
-    const newTasks = this.state.tasksRecieved.filter(
-      (tasksRecieved) => tasksRecieved.id !== id
-    );
-    this.setState({
-      tasksRecieved: newTasks,
     });
   };
 
@@ -57,47 +41,27 @@ class App extends Component {
               exact
               path="/"
               render={() => {
-                return (
-                  <>
-                    <HomePage />
-                  </>
-                );
+                return <HomePage />;
               }}
             ></Route>
             <Route
               exact
               path="/About"
               render={() => {
-                return (
-                  <>
-                    <AboutPage />
-                  </>
-                );
+                return <AboutPage />;
               }}
             ></Route>
             <Route
               exact
               path="/Contact"
               render={() => {
-                return (
-                  <>
-                    <ContactPage />
-                  </>
-                );
+                return <ContactPage />;
               }}
             ></Route>
             <Route
               path="/TaskDashboard"
               render={() => {
-                return (
-                  <>
-                    <TaskDashboardPage
-                      addTask={this.addTask}
-                      // tasks={this.state.tasksRecieved}
-                      deleteTask={this.deleteTask}
-                    />
-                  </>
-                );
+                return <TaskDashboardPage />;
               }}
             />
             <Footer />

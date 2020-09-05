@@ -13,13 +13,7 @@ class Tasks extends Component {
   }
 
   render() {
-    return this.props.Redux.map((e) => (
-      <Task
-        key={e.id}
-        propTask={e}
-        // deleteTask={this.props.deleteTask}
-      />
-    ));
+    return this.props.Redux.map((e) => <Task key={e.id} propTask={e} />);
   }
 }
 
