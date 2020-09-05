@@ -25,6 +25,8 @@ const initialState = {
 };
 
 const reducer = (state = initialState, action = {}) => {
+  // console.log("ID= " + state.tasks[1].id);
+
   if (action.type === "TASK_TEXT_STYLE") {
     return {
       ...state,
@@ -41,6 +43,38 @@ const reducer = (state = initialState, action = {}) => {
       ...state,
 
       tasks: state.tasks.filter((e) => e.id !== action.id),
+    };
+  } else if (action.type === "ADD_NEW_TASK") {
+    const newTask = {
+      id: state.tasks.length,
+      // id: id = () => {
+      //   // var i = 0;
+      //   var idFree = 0;
+      //   var flag = false; //This flag controls if the id is taked by another component.
+      //   var arrayIdRedux = [];
+
+      //   function checkIdIsFree(id) {
+      //     return id !== idFree;
+      //   }
+
+      //   for (let i = 0; i < state.tasks.length; i++) {
+      //     arrayIdRedux[i] = state.tasks[i].id;
+      //   }
+
+      //   do {
+      //     flag = arrayIdRedux.every(checkIdIsFree);
+      //     idFree += 1;
+      //   } while (flag === false);
+      //   flag = false;
+      //   return idFree;
+      // },
+      title: action.title,
+      description: action.description,
+    };
+    return {
+      ...state,
+
+      tasks: [...state.tasks, newTask],
     };
   }
 

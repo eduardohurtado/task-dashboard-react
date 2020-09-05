@@ -1,16 +1,25 @@
 import React, { Component } from "react";
 
+//Global state REDUX
+import { connect } from "react-redux";
+
 //Style SCSS
 import "../sass/taskForm.scss";
 
-export default class TaskForm extends Component {
-  state = {
-    title: "",
-    description: "",
-  };
+class TaskForm extends Component {
+  constructor(props) {
+    super(props);
+    this.props = props;
+
+    this.state = {
+      title: "",
+      description: "",
+    };
+  }
 
   onSubmit = (e) => {
-    this.props.addTask(this.state.title, this.state.description);
+    // this.props.addTask(this.state.title, this.state.description);
+    this.props.addTaskRedux(this.state.title, this.state.description);
     e.preventDefault();
   };
 
@@ -49,9 +58,26 @@ export default class TaskForm extends Component {
             value={this.state.description}
           ></textarea>
           <br />
-          <button type="submit">Save the task</button>
+          <button type="submit">Save task</button>
         </form>
       </div>
     );
   }
 }
+
+const mapStateToProps = (state) => ({
+  //Passing the current state of "store.js" because
+  Redux: state, //mapDispatchToProps don't work without
+}); //define mapStateToProps.
+
+const mapDispatchToProps = (dispatch) => ({
+  addTaskRedux(title, description) {
+    dispatch({
+      type: "ADD_NEW_TASK",
+      title,
+      description,
+    });
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(TaskForm);

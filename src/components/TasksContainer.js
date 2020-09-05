@@ -10,7 +10,7 @@ export default class TasksContainer extends Component {
   render() {
     return (
       <div className="tasksArea">
-        <p>My tasks:</p>
+        <p>Todos:</p>
         <div className="tasksArea__tasksContainer">
           <Tasks deleteTask={this.props.deleteTask} />
         </div>
