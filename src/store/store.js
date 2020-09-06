@@ -5,28 +5,26 @@ const initialState = {
   tasks: [
     {
       id: 0,
-      title: "INITIAL STATE REDUX #1",
-      description: "Testing the initial state [REDUX].",
+      title: "BUY GROCERIES",
+      description: "Buy 2 eggs, 3 carrots and one liter of milk.",
       done: false,
     },
     {
       id: 1,
-      title: "INITIAL STATE REDUX #2",
-      description: "Testing the initial state [REDUX].",
+      title: "CALL MOM :)",
+      description: "Don't forget to call mom at 14:00h.",
       done: false,
     },
     {
       id: 2,
-      title: "INITIAL STATE REDUX #3",
-      description: "Testing the initial state [REDUX].",
+      title: "FINISH THE ESSAY",
+      description: "Collect the remaining information.",
       done: false,
     },
   ],
 };
 
 const reducer = (state = initialState, action = {}) => {
-  // console.log("ID= " + state.tasks[1].id);
-
   if (action.type === "TASK_TEXT_STYLE") {
     return {
       ...state,
@@ -45,29 +43,32 @@ const reducer = (state = initialState, action = {}) => {
       tasks: state.tasks.filter((e) => e.id !== action.id),
     };
   } else if (action.type === "ADD_NEW_TASK") {
+    function findFreeId() {
+      var idFree = 0;
+      var flag = false; //This flag controls if the id is taked by another component.
+      var arrayTaskIdRedux = [];
+
+      function checkIdIsFree(id) {
+        return id !== idFree;
+      }
+
+      for (let i = 0; i < state.tasks.length; i++) {
+        arrayTaskIdRedux[i] = state.tasks[i].id;
+      }
+
+      do {
+        flag = arrayTaskIdRedux.every(checkIdIsFree);
+        if (flag === false) {
+          idFree += 1;
+        }
+      } while (flag === false);
+      flag = false;
+      return idFree;
+    }
+
     const newTask = {
-      id: state.tasks.length,
-      // id: id = () => {
-      //   // var i = 0;
-      //   var idFree = 0;
-      //   var flag = false; //This flag controls if the id is taked by another component.
-      //   var arrayIdRedux = [];
-
-      //   function checkIdIsFree(id) {
-      //     return id !== idFree;
-      //   }
-
-      //   for (let i = 0; i < state.tasks.length; i++) {
-      //     arrayIdRedux[i] = state.tasks[i].id;
-      //   }
-
-      //   do {
-      //     flag = arrayIdRedux.every(checkIdIsFree);
-      //     idFree += 1;
-      //   } while (flag === false);
-      //   flag = false;
-      //   return idFree;
-      // },
+      //id: state.tasks.length,
+      id: findFreeId(),
       title: action.title,
       description: action.description,
     };

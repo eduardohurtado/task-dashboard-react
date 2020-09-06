@@ -18,18 +18,6 @@ import "./sass/normalize.scss";
 import "./sass/app.scss";
 
 class App extends Component {
-  //Creating a new Task, the function is called from TaskForm.
-  addTask = (title, description) => {
-    const newTask = {
-      id: this.state.tasksRecieved.length,
-      title: title,
-      description: description,
-    };
-
-    this.setState({
-      tasksRecieved: [...this.state.tasksRecieved, newTask],
-    });
-  };
 
   render() {
     return (

@@ -49,7 +49,7 @@ class Task extends Component {
           <br />
           {task.description}
           <br />
-          {"Mark as done: "}
+          {"Done: "}
           <input
             type="checkbox"
             onChange={() => {

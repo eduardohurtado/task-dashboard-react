@@ -12,7 +12,7 @@ export default class TasksContainer extends Component {
       <div className="tasksArea">
         <p>Todos:</p>
         <div className="tasksArea__tasksContainer">
-          <Tasks deleteTask={this.props.deleteTask} />
+          <Tasks />
         </div>
       </div>
     );
