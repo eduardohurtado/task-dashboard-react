@@ -1,18 +1,58 @@
 import React, { Component } from "react";
 
+//Tools
+import LazyImage from "./tools/LazyImage";
+
 //Style SCSS
 import "../sass/homePage.scss";
 
 //Images
-import logoHtml from "../img/html-5.png";
-import logoScss from "../img/scss.png";
-import logoJs from "../img/js.png";
-import logoReact from "../img/react.png";
-import logoRedux from "../img/redux.png";
-import logojQuery from "../img/jquery.png";
+import LogoHtml from "../img/html-5.png";
+import LogoScss from "../img/scss.png";
+import LogoJs from "../img/js.png";
+import LogoReact from "../img/react.png";
+import LogoRedux from "../img/redux.png";
+import LogojQuery from "../img/jquery.png";
 
 export default class HomePage extends Component {
   render() {
+    const imageLogoHtml = {
+      alt: "Html5",
+      height: "110px",
+      width: "110px",
+      src: LogoHtml,
+    };
+    const imageLogoScss = {
+      alt: "Html5",
+      height: "110px",
+      width: "110px",
+      src: LogoScss,
+    };
+    const imageLogoJs = {
+      alt: "Html5",
+      height: "110px",
+      width: "110px",
+      src: LogoJs,
+    };
+    const imageLogoReact = {
+      alt: "Html5",
+      height: "110px",
+      width: "110px",
+      src: LogoReact,
+    };
+    const imageLogoRedux = {
+      alt: "Html5",
+      height: "110px",
+      width: "110px",
+      src: LogoRedux,
+    };
+    const imageLogojQuery = {
+      alt: "Html5",
+      height: "110px",
+      width: "110px",
+      src: LogojQuery,
+    };
+
     return (
       <div className="homePage">
         <h1 className="homeTitle">Welcome :)</h1>
@@ -21,13 +61,14 @@ export default class HomePage extends Component {
           that can be deleted and/or marked as complete, please enjoy.
         </p>
         <h2>Main technologies:</h2>
-
-        <img src={logoHtml} alt="Html5" height="110px" />
-        <img src={logoJs} alt="Javascript" height="110px" />
-        <img src={logoScss} alt="SCSS" height="110px" />
-        <img src={logojQuery} alt="jQuery" height="110px" />
-        <img src={logoReact} alt="React" height="110px" />
-        <img src={logoRedux} alt="Redux" height="110px" />
+        <div className="rowC">
+          <LazyImage image={imageLogoHtml} />
+          <LazyImage image={imageLogoJs} />
+          <LazyImage image={imageLogoScss} />
+          <LazyImage image={imageLogojQuery} />
+          <LazyImage image={imageLogoReact} />
+          <LazyImage image={imageLogoRedux} />
+        </div>
         {/* <img className="incoming" src={logoRedux} alt="Redux" height="110px" />
         <p>*Gray icons means that feature is in current develop.</p> */}
       </div>
