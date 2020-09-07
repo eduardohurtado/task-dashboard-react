@@ -19,37 +19,31 @@ export default class HomePage extends Component {
     const imageLogoHtml = {
       alt: "Html5",
       height: "110px",
-      width: "110px",
       src: LogoHtml,
     };
     const imageLogoScss = {
-      alt: "Html5",
+      alt: "Sass",
       height: "110px",
-      width: "110px",
       src: LogoScss,
     };
     const imageLogoJs = {
-      alt: "Html5",
+      alt: "Javascript",
       height: "110px",
-      width: "110px",
       src: LogoJs,
     };
     const imageLogoReact = {
-      alt: "Html5",
+      alt: "ReactJs",
       height: "110px",
-      width: "110px",
       src: LogoReact,
     };
     const imageLogoRedux = {
-      alt: "Html5",
+      alt: "Redux",
       height: "110px",
-      width: "110px",
       src: LogoRedux,
     };
     const imageLogojQuery = {
-      alt: "Html5",
+      alt: "jQuery",
       height: "110px",
-      width: "110px",
       src: LogojQuery,
     };
 
