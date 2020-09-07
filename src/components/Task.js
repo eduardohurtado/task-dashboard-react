@@ -47,7 +47,9 @@ class Task extends Component {
           {task.title}
           <br />
           <br />
+          <br />
           {task.description}
+          <br />
           <br />
           {"Done: "}
           <input
