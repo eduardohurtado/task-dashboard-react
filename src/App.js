@@ -18,7 +18,6 @@ import "./sass/normalize.scss";
 import "./sass/app.scss";
 
 class App extends Component {
-
   render() {
     return (
       <Provider store={store}>
@@ -51,7 +50,7 @@ class App extends Component {
               render={() => {
                 return <TaskDashboardPage />;
               }}
-            />
+            ></Route>
             <Footer />
           </div>
         </Router>
