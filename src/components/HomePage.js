@@ -61,7 +61,7 @@ export default class HomePage extends Component {
           that can be deleted and/or marked as complete, please enjoy.
         </p>
         <h2>Main technologies:</h2>
-        <div className="rowC">
+        <div className="rowWrap">
           <LazyImage image={imageLogoHtml} />
           <LazyImage image={imageLogoJs} />
           <LazyImage image={imageLogoScss} />
@@ -69,6 +69,7 @@ export default class HomePage extends Component {
           <LazyImage image={imageLogoReact} />
           <LazyImage image={imageLogoRedux} />
         </div>
+
         {/* <img className="incoming" src={logoRedux} alt="Redux" height="110px" />
         <p>*Gray icons means that feature is in current develop.</p> */}
       </div>

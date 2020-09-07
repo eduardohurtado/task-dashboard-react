@@ -5,9 +5,9 @@
   overflow: auto;
   padding: 5px;
 
-  .rowC {
+  .rowWrap {
     display: flex;
-    flex-direction: row;
+    flex-flow: row wrap;
     justify-content: center;
   }
 

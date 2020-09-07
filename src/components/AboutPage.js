@@ -10,8 +10,7 @@ export default class AboutPage extends Component {
         <h1 className="aboutTitle">I'm glad to have you here!</h1>
         <p>
           This is a practice aplication to improve skills in ReactJS and the
-          Node environment, also this project was bootstrapped with
-          Create-React-App.
+          Node environment.
         </p>
       </div>
     );
