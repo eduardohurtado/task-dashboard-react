@@ -12,4 +12,4 @@ Run `yarn start` or `npm start` for a dev server. Navigate to [http://localhost:
 
 ## Learn More below
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+To learn React, check out the [React documentation](https://reactjs.org/)..
